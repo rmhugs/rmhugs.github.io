@@ -22,7 +22,7 @@ h1{font-size:clamp(2.2rem,5vw,3.2rem);margin:0 0 .4rem;line-height:1.1}
 .intro{max-width:60ch;margin:0 0 1.5rem}
 .loc{font-size:.95rem;opacity:.85;margin:.75rem 0 0}
 .actions{display:flex;flex-wrap:wrap;gap:.75rem;margin:0}
-.btn{display:inline-block;padding:.65rem 1.2rem;border-radius:8px;background:#fff;color:var(--navy);font-weight:600;text-decoration:none;border:2px solid #fff}
+.btn{display:inline-block;padding:.65rem 1.2rem;border-radius:8px;background:#fff;color:var(--navy);font-weight:600;text-decoration:none;border:2px solid #fff;overflow-wrap:anywhere;max-width:100%}
 .btn-ghost{background:transparent;color:#fff}
 .btn:hover{transform:translateY(-1px)}
 #contact .btn{background:var(--navy);color:#fff;border-color:var(--navy)}
