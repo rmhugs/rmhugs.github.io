@@ -1,1 +1,1 @@
-Personal website for Ryan Hughes, served by GitHub Pages at https://ryanmhughes.com
+Personal website for Ryan M Hughes, served by GitHub Pages at https://ryanmhughes.com
