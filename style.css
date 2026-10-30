@@ -8,6 +8,7 @@ body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica N
 a{color:var(--navy)}
 a:focus-visible{outline:3px solid #f2b705;outline-offset:2px}
 .site-header{position:sticky;top:0;background:rgba(255,255,255,.95);border-bottom:1px solid var(--line);z-index:5;backdrop-filter:blur(6px)}
+section[id],#main{scroll-margin-top:4rem}
 .nav{display:flex;justify-content:space-between;align-items:center;min-height:60px;flex-wrap:wrap;gap:.5rem}
 .brand{font-weight:700;text-decoration:none;color:var(--navy);font-size:1.1rem}
 .nav ul{display:flex;gap:1.25rem;list-style:none;margin:0;padding:0}
@@ -24,7 +25,6 @@ h1{font-size:clamp(2.2rem,5vw,3.2rem);margin:0 0 .4rem;line-height:1.1}
 .actions{display:flex;flex-wrap:wrap;gap:.75rem;margin:0}
 .btn{display:inline-block;padding:.65rem 1.2rem;border-radius:8px;background:#fff;color:var(--navy);font-weight:600;text-decoration:none;border:2px solid #fff;overflow-wrap:anywhere;max-width:100%}
 .btn-ghost{background:transparent;color:#fff}
-.btn:hover{transform:translateY(-1px)}
 #contact .btn{background:var(--navy);color:#fff;border-color:var(--navy)}
 #contact .btn-ghost{background:transparent;color:var(--navy)}
 .section{padding:4rem 0}.alt{background:var(--alt)}
@@ -54,5 +54,69 @@ h3{font-size:1.1rem;margin:0 0 .15rem}
  .actions{justify-content:center}
  .nav{justify-content:center;padding:.5rem 0}.nav ul{gap:1rem}
  .section{padding:3rem 0}
+ section[id],#main{scroll-margin-top:5.25rem}
 }
-@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.btn:hover{transform:none}}
+
+/* Hidden only after the head script adds html.js, so content stays visible without JavaScript. */
+.btn,.card,.quote{transition:transform 180ms ease,box-shadow 180ms ease}
+.btn:hover,.btn:focus-visible,.card:hover,.quote:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(31,58,95,.12)}
+.hero .btn:hover,.hero .btn:focus-visible{box-shadow:0 8px 20px rgba(0,0,0,.28)}
+.btn:focus-visible{outline:3px solid #f2b705;outline-offset:3px}
+@keyframes fade-in{from{opacity:0}to{opacity:1}}
+.js .site-header,.js .hero-inner{animation:fade-in 600ms ease-out both}
+.js #about>.wrap,
+.js #experience>.wrap,
+.js #contact>.wrap,
+.js #education>.wrap>h2,
+.js #testimonials>.wrap>h2,
+.js .card,
+.js .quote{
+ opacity:0;
+ translate:0 16px;
+ transition:opacity 560ms ease-out,translate 560ms ease-out,transform 180ms ease,box-shadow 180ms ease
+}
+.js #about>.wrap.is-visible,
+.js #experience>.wrap.is-visible,
+.js #contact>.wrap.is-visible,
+.js #education>.wrap>h2.is-visible,
+.js #testimonials>.wrap>h2.is-visible,
+.js .card.is-visible,
+.js .quote.is-visible{
+ opacity:1;
+ translate:0 0;
+ transition-delay:var(--reveal-delay,0ms),var(--reveal-delay,0ms),0s,0s
+}
+@media (prefers-reduced-motion:reduce){
+ html{scroll-behavior:auto}
+ .js .site-header,.js .hero-inner{animation:none}
+ .js #about>.wrap,
+ .js #about>.wrap.is-visible,
+ .js #experience>.wrap,
+ .js #experience>.wrap.is-visible,
+ .js #contact>.wrap,
+ .js #contact>.wrap.is-visible,
+ .js #education>.wrap>h2,
+ .js #education>.wrap>h2.is-visible,
+ .js #testimonials>.wrap>h2,
+ .js #testimonials>.wrap>h2.is-visible,
+ .js .card,
+ .js .card.is-visible,
+ .js .quote,
+ .js .quote.is-visible{
+  animation:none;
+  opacity:1;
+  translate:none;
+  transform:none;
+  transition:none
+ }
+ .btn,.card,.quote{transition:none}
+ .btn:hover,.btn:focus-visible,.card:hover,.quote:hover,
+ .hero .btn:hover,.hero .btn:focus-visible{transform:none;box-shadow:none}
+ .quote:hover{box-shadow:0 2px 8px rgba(31,58,95,.08)}
+}
+@media print{
+ .js .site-header,.js .hero-inner,
+ .js #about>.wrap,.js #experience>.wrap,.js #contact>.wrap,
+ .js #education>.wrap>h2,.js #testimonials>.wrap>h2,
+ .js .card,.js .quote{animation:none;opacity:1;translate:none;transform:none}
+}
