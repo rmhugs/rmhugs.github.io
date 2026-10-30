@@ -16,7 +16,7 @@ a:focus-visible{outline:3px solid #f2b705;outline-offset:2px}
 .hero-inner{display:flex;gap:2.5rem;align-items:center}
 .monogram,.photo{flex:0 0 160px;width:160px;height:160px;border-radius:50%}
 .monogram{display:grid;place-items:center;background:#fff;color:var(--navy);font:700 3.4rem Georgia,"Times New Roman",serif;letter-spacing:.04em;box-shadow:0 0 0 6px rgba(255,255,255,.2)}
-.photo{object-fit:cover}
+.photo{display:block;object-fit:cover;box-shadow:0 0 0 6px rgba(255,255,255,.2)}
 h1{font-size:clamp(2.2rem,5vw,3.2rem);margin:0 0 .4rem;line-height:1.1}
 .headline{font-size:1.1rem;color:#dbe5f1;margin:0 0 1rem;font-weight:500}
 .intro{max-width:60ch;margin:0 0 1.5rem}
@@ -50,7 +50,7 @@ h3{font-size:1.1rem;margin:0 0 .15rem}
 @media (max-width:640px){
  body{font-size:16px}
  .hero{padding:3rem 0}.hero-inner{flex-direction:column;text-align:center;gap:1.5rem}
- .monogram{flex-basis:auto;width:120px;height:120px;font-size:2.6rem}
+ .monogram,.photo{flex-basis:auto;width:120px;height:120px;font-size:2.6rem}
  .actions{justify-content:center}
  .nav{justify-content:center;padding:.5rem 0}.nav ul{gap:1rem}
  .section{padding:3rem 0}
